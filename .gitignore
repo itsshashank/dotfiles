@@ -1,0 +1,9 @@
+# ignore all logs
+*log
+
+nvim/.config/nvim/plugged
+nvim/.config/nvim/session
+mpd/.config/mpd/database
+mpd/.config/mpd/pid
+mpd/.config/mpd/state
+mpd/.config/mpd/sticker.sql
