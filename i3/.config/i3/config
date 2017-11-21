@@ -19,19 +19,6 @@ new_float pixel $bw
 
 # }}}
 
-# GAPS {{{
-
-# gaps inner 20
-# gaps outer -20
-
-# smart_gaps on
-# smart_borders on
-
-# workspace $ws2 gaps inner 0
-# workspace $ws2 gaps outer 0
-
-# }}}
-
 # KEYBINDINGS {{{
 
 # kill
@@ -74,7 +61,7 @@ bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+m bar mode toggle
 
 # powermenu
-bindsym $mod+Delete exec /home/pavan/.config/i3/blocks/shutdown_menu
+# bindsym $mod+Delete exec /home/pavan/.config/i3/blocks/shutdown_menu
 
 # lock shortcut
 bindsym $mod+shift+x exec lock.sh
@@ -353,7 +340,8 @@ bindsym $mod+r mode "resize"
 # LOGOUT {{{
 
 set $Locker i3lock && sleep 1
-set $mode_system System:  [L]  | [S]  | [P]  | [R]  | [E] 
+# set $mode_system System:  [L]  | [S]  | [P]  | [R]  | [E] 
+set $mode_system { lock | suspend | poweroff | reboot | exit }
 mode "$mode_system" {
         bindsym l exec --no-startup-id lock.sh, mode "default"; exec notify-send 'Screen Locked :P'
         bindsym e exec --no-startup-id i3-msg exit, mode "default"
@@ -364,7 +352,7 @@ mode "$mode_system" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-bindsym $mod+Shift+Delete mode "$mode_system"
+bindsym $mod+Delete mode "$mode_system"
 
 # }}}
 
