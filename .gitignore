@@ -1,6 +1,9 @@
 # ignore all logs
 *log
-
+weechat/.weechat/*
+!weechat/.weechat/alias.conf
+!weechat/.weechat/buflist.conf
+!weechat/.weechat/weechat.conf
 nvim/.config/nvim/plugged
 nvim/.config/nvim/session
 mpd/.config/mpd/database
