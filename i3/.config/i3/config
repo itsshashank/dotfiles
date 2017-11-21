@@ -26,7 +26,7 @@ bindsym $mod+q kill
 
 # user
 bindsym $mod+Return exec --no-startup-id "$TERMINAL"
-bindsym $mod+d exec --no-startup-id "rofi -show run"
+# bindsym $mod+d exec --no-startup-id "rofi -show run"
 bindsym $mod+p exec --no-startup-id thunar
 bindsym $mod+b exec --no-startup-id "chromium"
 bindsym $mod+Shift+b exec --no-startup-id "chromium -incognito"
@@ -215,6 +215,8 @@ bar {
 
 }
 
+# dmenu
+bindsym $mod+d exec dmenu_run -fn "UW Ttyp0:size=10" -nb "$bg" -nf "$fg" -sb "$c5" -sf "$bg"
 
 # }}}
 
