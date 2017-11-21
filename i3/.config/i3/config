@@ -168,30 +168,6 @@ client.urgent           $c1    $c1    $fg    $c1    $c1
 client.placeholder      $bg    $bg    $fg    $bg    $bg
 client.background       $fg
 
-## i3bar
-#bar {
-#
-#  position top
-#  tray_output none
-#  strip_workspace_numbers yes
-#  status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#
-#    colors {
-#        background $bg
-#        statusline $fg
-#        separator  $c5
-#
-#
-#        # State             Border  BG      Text
-#        focused_workspace   $c5     $c5     $bg
-#        active_workspace    $c8     $c8     $bg
-#        inactive_workspace  $c8     $c8     $bg
-#        urgent_workspace    $c1     $c1     $bg
-#        binding_mode        $c1     $c1     $bg
-#    }
-#
-#}
-# i3bar
 bar {
 
   position top
