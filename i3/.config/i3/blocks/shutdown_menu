@@ -7,8 +7,6 @@
 # Inspired from i3pystatus wiki:
 # https://github.com/enkore/i3pystatus/wiki/Shutdown-Menu
 #
-# Copyright 2015 Benjamin Chrétien <chretien at lirmm dot fr>
-#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -27,18 +25,18 @@
 #######################################################################
 
 # Use a custom lock script
-LOCKSCRIPT="~/.config/i3/bin/lock.sh"
+# LOCKSCRIPT="~/.config/i3/bin/lock.sh"
 
 # Colors: FG (foreground), BG (background), HL (highlighted)
 FG_COLOR="#bbbbbb"
 BG_COLOR="#111111"
 HLFG_COLOR="#111111"
 HLBG_COLOR="#bbbbbb"
-BORDER_COLOR="#222222"
+BORDER_COLOR="#111111"
 
 # Options not related to colors
-ROFI_TEXT="POWERMENU"
-ROFI_OPTIONS=(-width -11 -location 3 -hide-scrollbar -bw 2 -yoffset 25 -xoffset -10)
+ROFI_TEXT="  "
+ROFI_OPTIONS=(-width -4 -location 3 -separator-style none -hide-scrollbar -bw 0 -yoffset 25 -xoffset -10)
 
 # Zenity options
 ZENITY_TITLE="Menu"
@@ -113,14 +111,14 @@ typeset -A menu
 
 # Menu with keys/commands
 menu=(
-  [Shutdown]="systemctl poweroff"
-  [Reboot]="systemctl reboot"
-  [Hibernate]="systemctl hibernate"
-  [Suspend]="systemctl suspend"
-  [Halt]="systemctl halt"
-  [Lock]="${LOCKSCRIPT:-i3lock --color=${BG_COLOR#"#"}}"
-  [Logout]="i3-msg exit"
-  [Cancel]=""
+  [  ]="systemctl poweroff"
+  [  ]="systemctl reboot"
+# [Hibernate]="systemctl hibernate"
+  [  ]="lock.sh && sleep 2 && systemctl suspend"
+# [Halt]="systemctl halt"
+  [  ]="lock.sh"
+  [  ]="i3-msg exit"
+# [Cancel]=""
 )
 menu_nrows=${#menu[@]}
 
