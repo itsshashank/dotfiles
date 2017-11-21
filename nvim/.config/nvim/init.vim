@@ -239,7 +239,7 @@ if exists("*fugitive#statusline")
 endif
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'jellybeans',
       \ }
 
 "*****************************************************************************
