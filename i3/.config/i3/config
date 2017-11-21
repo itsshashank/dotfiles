@@ -21,8 +21,8 @@ new_float pixel $bw
 
 # GAPS {{{
 
-# gaps inner 10
-# gaps outer 10
+# gaps inner 20
+# gaps outer -20
 
 # smart_gaps on
 # smart_borders on
@@ -136,13 +136,16 @@ exec --no-startup-id compton --config $HOME/.config/compton.conf -b
 exec --no-startup-id feh --bg-fill ~/.back.png &
 exec --no-startup-id blurme &
 # dropterm
-for_window [instance="__scratchpad"] move scratchpad, move position 0 0, resize set 1366 300;
-exec --no-startup-id urxvt -name __scratchpad
+for_window [instance="__dropterm"] move scratchpad, move position 0 0, resize set 1366 300;
+exec --no-startup-id urxvt -name __dropterm
 
 # exec always
 exec_always --no-startup-id numlockx on
 exec_always --no-startup-id xrdb -load ~/.Xresources
 exec_always xautolock -time 10 -locker lock.sh
+
+# userapps
+# exec --no-startup-id transmission-gtk -m &
 
 # }}}
 
@@ -178,6 +181,29 @@ client.urgent           $c1    $c1    $fg    $c1    $c1
 client.placeholder      $bg    $bg    $fg    $bg    $bg
 client.background       $fg
 
+## i3bar
+#bar {
+#
+#  position top
+#  tray_output none
+#  strip_workspace_numbers yes
+#  status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#
+#    colors {
+#        background $bg
+#        statusline $fg
+#        separator  $c5
+#
+#
+#        # State             Border  BG      Text
+#        focused_workspace   $c5     $c5     $bg
+#        active_workspace    $c8     $c8     $bg
+#        inactive_workspace  $c8     $c8     $bg
+#        urgent_workspace    $c1     $c1     $bg
+#        binding_mode        $c1     $c1     $bg
+#    }
+#
+#}
 # i3bar
 bar {
 
@@ -193,11 +219,11 @@ bar {
 
 
         # State             Border  BG      Text
-        focused_workspace   $c5     $c5     $bg
-        active_workspace    $c8     $c8     $bg
-        inactive_workspace  $c8     $c8     $bg
-        urgent_workspace    $c1     $c1     $bg
-        binding_mode        $c1     $c1     $bg
+        focused_workspace   $bg     $bg     $c5
+        active_workspace    $bg     $bg     $c8
+        inactive_workspace  $bg     $bg     $c8
+        urgent_workspace    $bg     $bg     $c1
+        binding_mode        $bg     $bg     $c1
     }
 
 }
@@ -338,7 +364,7 @@ mode "$mode_system" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-bindsym $alt+Control+Delete mode "$mode_system"
+bindsym $mod+Shift+Delete mode "$mode_system"
 
 # }}}
 
